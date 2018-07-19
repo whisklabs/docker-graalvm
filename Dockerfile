@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:jessie
 LABEL maintainer="Viktor Taranenko <viktor@whisk.com>"
 
 ARG GRAAL_VERSION
