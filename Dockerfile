@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 LABEL maintainer="Viktor Taranenko <viktor@whisk.com>"
 
 ARG GRAAL_VERSION
