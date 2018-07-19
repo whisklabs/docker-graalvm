@@ -2,7 +2,7 @@ FROM debian:stable-slim
 LABEL maintainer="Viktor Taranenko <viktor@whisk.com>"
 
 ARG GRAAL_VERSION
-ENV GRAAL_VERSION ${GRAAL_VERSION:-1.0.0-rc3}
+ENV GRAAL_VERSION ${GRAAL_VERSION:-1.0.0-rc4}
 
 RUN set -xeu && \
     export DEBIAN_FRONTEND=noninteractive && \
