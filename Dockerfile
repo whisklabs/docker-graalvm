@@ -2,7 +2,7 @@ FROM debian:stretch
 LABEL maintainer="Viktor Taranenko <viktor@whisk.com>"
 
 ARG GRAAL_VERSION
-ENV GRAAL_VERSION ${GRAAL_VERSION:-1.0.0-rc7}
+ENV GRAAL_VERSION ${GRAAL_VERSION:-1.0.0-rc14}
 
 RUN set -xeu && \
     export DEBIAN_FRONTEND=noninteractive && \
