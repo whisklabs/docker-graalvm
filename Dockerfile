@@ -19,6 +19,7 @@ RUN set -xeu && \
     rm -r /graalvm/man && \
     echo Cleaning up... && \
     apt-get remove -y \
+        curl \
         ca-certificates-java \
         && \
     apt-get autoremove -y && \
