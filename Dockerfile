@@ -1,8 +1,8 @@
-FROM debian:stretch
-LABEL maintainer="Viktor Taranenko <viktor@whisk.com>"
+FROM debian:buster
+LABEL maintainer="Viktor Taranenko <viktor@samsungnext.com>"
 
 ARG GRAAL_VERSION
-ENV GRAAL_VERSION ${GRAAL_VERSION:-1.0.0-rc14}
+ENV GRAAL_VERSION ${GRAAL_VERSION:-19.2.1}
 
 RUN set -xeu && \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -11,7 +11,7 @@ RUN set -xeu && \
         curl ca-certificates ca-certificates-java \
         && \
     mkdir /graalvm && \
-    curl -fsSL "https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-${GRAAL_VERSION}-linux-amd64.tar.gz" \
+    curl -fsSL "https://github.com/oracle/graal/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-linux-amd64-${GRAAL_VERSION}.tar.gz" \
         | tar -zxC /graalvm --strip-components 1 && \
     echo 'HOTFIX for missing certificates: https://github.com/oracle/graal/issues/378' && \
     cp /etc/ssl/certs/java/cacerts /graalvm/jre/lib/security/cacerts && \
