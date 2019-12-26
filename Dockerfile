@@ -3,6 +3,8 @@ LABEL maintainer="Viktor Taranenko <viktor@samsungnext.com>"
 
 ARG GRAAL_VERSION
 ENV GRAAL_VERSION ${GRAAL_VERSION:-19.3.0}
+ARG JAVA_VERSION
+ENV JAVA_VERSION ${JAVA_VERSION:-11}
 
 RUN set -xeu && \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -11,7 +13,7 @@ RUN set -xeu && \
         curl ca-certificates ca-certificates-java \
         && \
     mkdir /graalvm && \
-    curl -fsSL "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java8-linux-amd64-${GRAAL_VERSION}.tar.gz" \
+    curl -fsSL "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz" \
         | tar -zxC /graalvm --strip-components 1 && \
     echo 'HOTFIX for missing certificates: https://github.com/oracle/graal/issues/378' && \
     cp /etc/ssl/certs/java/cacerts /graalvm/jre/lib/security/cacerts && \
