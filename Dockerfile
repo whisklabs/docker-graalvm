@@ -10,17 +10,15 @@ RUN set -xeu && \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        curl ca-certificates ca-certificates-java \
+        curl \
         && \
     mkdir /graalvm && \
     curl -fsSL "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz" \
         | tar -zxC /graalvm --strip-components 1 && \
     find /graalvm -name "*src.zip"  -printf "Deleting %p\n" -exec rm {} + && \
-    rm -r /graalvm/man && \
     echo Cleaning up... && \
     apt-get remove -y \
         curl \
-        ca-certificates-java \
         && \
     apt-get autoremove -y && \
     apt-get clean && rm -r "/var/lib/apt/lists"/* && \
