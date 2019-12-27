@@ -15,8 +15,6 @@ RUN set -xeu && \
     mkdir /graalvm && \
     curl -fsSL "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz" \
         | tar -zxC /graalvm --strip-components 1 && \
-    echo 'HOTFIX for missing certificates: https://github.com/oracle/graal/issues/378' && \
-    cp /etc/ssl/certs/java/cacerts /graalvm/jre/lib/security/cacerts && \
     find /graalvm -name "*src.zip"  -printf "Deleting %p\n" -exec rm {} + && \
     rm -r /graalvm/man && \
     echo Cleaning up... && \
