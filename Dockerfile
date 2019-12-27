@@ -10,7 +10,7 @@ RUN set -xeu && \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        curl \
+        curl ca-certificates \
         && \
     mkdir /graalvm && \
     curl -fsSL "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz" \
